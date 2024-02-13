@@ -16,6 +16,12 @@ class MockGPIO:
     HIGH     = "HIGH"
     LOW      = "LOW"
     PUD_DOWN = "PUD_DOWN"
+    RISING   = "RISING"
+    FALLING  = "FALLING"
+
+
+    def add_event_detect( self, pin, mode, **kwargs ):
+        debug("MockGPIO.add_event_detect(", pin, ",", mode, ",", kwargs, ")")
 
     def setmode(self, mode):
         debug("MockGPIO.setmode(", mode, ")")
