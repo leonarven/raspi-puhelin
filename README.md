@@ -1,8 +1,8 @@
 # Testiskriptit
 
-## script_play_audio.py, toista audiotidosto
+## tests/play_audio.py, toista audiotidosto
 ```
-python3 script_play_audio.py
+python3 tests/play_audio.py
 ```
 
 ## script_keypad_pinger.py, lue näppäimistöä ja toista näppäimen merkki
