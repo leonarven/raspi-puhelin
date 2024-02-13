@@ -177,11 +177,14 @@ def playSound( name, sound ):
 	debug( "audio.playSound( name )", name, "READY" )
 
 def initializeAudio( name ):
+	debug( "audio.initializeAudio()", name )
 	sound = getOrGenerateAudio( name )
+	debug( "audio.initializeAudio()", name, "READY" )
+	return sound
 
 def init():
 	initializeAudio( const.AUDIO_FILE_LAMMAS )
 	initializeAudio( const.AUDIO_FILE_PM )
 	initializeAudio( const.AUDIO_NOISE )
-	debug( "audio.init() :: ready" )
+	debug( "audio.init() :: READY" )
 	playAudio( const.AUDIO_NOISE )

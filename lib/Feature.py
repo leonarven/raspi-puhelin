@@ -1,7 +1,10 @@
 
 from logger import debug
+from GPIO import GPIO
 
 import Event
+import time
+
 
 
 
@@ -29,11 +32,29 @@ class BaseKeypadFeature( Feature ):
 
 
 
+class KeypadReaderFeature( BaseKeypadFeature ):
+
+    def __init__( self, events, keypad ):
+        super().__init__( events )
+
+        self.keypad = keypad
+
+        self.keypad.registerKeydownListener( self.onKeydown )
+
+    def iterate( self ):
+        self.keypad.iterate();
+
+    def onKeydown( self, key ):
+        if key in self.key_events:
+            self.events.emit( self.key_events[key], key )
+
+
+
 class BaseKeypadActionFeature( BaseKeypadFeature ):
 
 	def __init__( self, events ):
 		super().__init__( events )
-		
+
 		for key in self.key_events:
 			self.injectEventListener( key, self.key_events[key] )
 
@@ -48,7 +69,7 @@ class BaseKeypadActionFeature( BaseKeypadFeature ):
 
 
 
-class BaseHeadsetActionFeature( Feature ):
+class BaseHandsetActionFeature( Feature ):
 	def __init__( self, events ):
 		super().__init__( events )
 
@@ -56,7 +77,27 @@ class BaseHeadsetActionFeature( Feature ):
 		events.on( Event.HANDSET_STATUS_LOWERED, self.onHandsetStatusLowered )
 
 	def onHandsetStatusLifted( self, data ):
-		debug( "BaseHeadsetActionFeature.onHandsetStatusLifted()", data )
+		debug( "BaseHandsetActionFeature.onHandsetStatusLifted()", data )
 
 	def onHandsetStatusLowered( self, data ):
-		debug( "BaseHeadsetActionFeature.onHandsetStatusLowered()", data )
+		debug( "BaseHandsetActionFeature.onHandsetStatusLowered()", data )
+
+
+
+class HandsetReaderFeature( Feature ):
+
+    def __init__( self, events, switch ):
+        super().__init__(events)
+
+        self.switch = switch
+
+        GPIO.add_event_detect( self.switch.pin, GPIO.BOTH, callback=self.onStateChangeActive, bouncetime=250 )
+
+    def onStateChangeActive( self, state ):
+
+        time.sleep( 0.100 )
+
+        if self.switch.read() == GPIO.HIGH:
+            self.events.emit( Event.HANDSET_STATUS_LIFTED, "Lifted" )
+        else:
+            self.events.emit( Event.HANDSET_STATUS_LOWERED, "Lowered" )

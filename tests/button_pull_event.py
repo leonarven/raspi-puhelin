@@ -15,12 +15,14 @@ switch = Switch.init();
 
 def onStateChangeActive( state ):
 	print("onStateChangeActive", state)
+	time.sleep( const.MS_100 )
+	print( switch.read() )
 
 def onStateChangeDisable( state ):
 	print("onStateChangeDisable", state)
 
-GPIO.add_event_detect( const.PIN_SWITCH_INPUT, GPIO.RISING, callback=onStateChangeActive, bouncetime = 250 )
-GPIO.add_event_detect( const.PIN_SWITCH_INPUT, GPIO.FALLING, callback=onStateChangeDisable, bouncetime = 250 )
+GPIO.add_event_detect( const.PIN_SWITCH_INPUT, GPIO.BOTH, callback=onStateChangeActive, bouncetime = 250 )
+#GPIO.add_event_detect( const.PIN_SWITCH_INPUT, GPIO.FALLING, callback=onStateChangeDisable, bouncetime = 250 )
 
 def main():
 	asd = input("asd");

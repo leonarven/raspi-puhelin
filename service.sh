@@ -1,5 +1,5 @@
 #!/bin/bash
 
-cd /home/pi/2024-02-01-raspi-puhelinappi;
+DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd)"
 
-python3 script_button_pull_detection.py
+cd $DIR && source venv/bin/activate && python3 main.py
