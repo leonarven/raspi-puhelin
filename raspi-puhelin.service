@@ -1,0 +1,19 @@
+[Unit]
+Description = raspi-puhelin
+After = network.target
+
+[Service]
+Type = simple
+WorkingDirectory = /home/pi/2024-02-01-raspi-puhelinappi
+ExecStart = python3 /home/pi/2024-02-01-raspi-puhelinappi/service.sh
+User = pi
+Group = pi
+Restart = no
+StandardOutput=syslog
+StandardError=syslog
+SyslogIdentifier = raspi_puhelin
+RestartSec = 5
+TimeoutStartSec = infinity
+
+[Install]
+WantedBy = multi-user.target
