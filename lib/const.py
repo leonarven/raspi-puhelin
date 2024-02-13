@@ -30,34 +30,34 @@ AUDIO_PAD_SEQ_ORDER = [ '1', '2', '3', '4', '5', '6', '7', '8', '9', 'A', '0', '
 
 # Koko äänisegmentin kesto, tasattuna äänen alkuun ja päätettynä lopun hiljaisuudella
 AUDIO_PAD_SEQ_DURATIONS = {
-    '1': 1300,
-    '2': 1300,
-    '3': 1300,
-    '4': 1400,
-    '5': 1400,
-    '6': 1600,
-    '7': 1700,
-    '8': 1600,
-    '9': 1700,
-    'A': 1400,
-    '0': 1400,
-    'B': 1400
+	'1': 1300,
+	'2': 1300,
+	'3': 1300,
+	'4': 1400,
+	'5': 1400,
+	'6': 1600,
+	'7': 1700,
+	'8': 1600,
+	'9': 1700,
+	'A': 1400,
+	'0': 1400,
+	'B': 1400
 }
 
 # Lopun hiljaisuuden kesto
 AUDIO_PAD_SEQ_SILENCES = {
-    '1': 200,
-    '2': 500,
-    '3': 200,
-    '4': 200,
-    '5': 200,
-    '6': 700,
-    '7': 700,
-    '8': 600,
-    '9': 600,
-    'A': 600,
-    '0': 900,
-    'B': 200
+	'1': 200,
+	'2': 500,
+	'3': 200,
+	'4': 200,
+	'5': 200,
+	'6': 700,
+	'7': 700,
+	'8': 600,
+	'9': 600,
+	'A': 600,
+	'0': 900,
+	'B': 200
 }
 
 # -----------------
@@ -66,18 +66,18 @@ AUDIO_PAD_SEQ_STARTS = {};
 
 prev_key = None;
 for key in AUDIO_PAD_SEQ_ORDER:
-    if key == AUDIO_PAD_SEQ_ORDER[0]:
-        AUDIO_PAD_SEQ_STARTS[ key ] = 0;
-    else:
-        AUDIO_PAD_SEQ_STARTS[ key ] = AUDIO_PAD_SEQ_STARTS[ prev_key ] + AUDIO_PAD_SEQ_DURATIONS[ prev_key ];
-    prev_key = key;
+	if key == AUDIO_PAD_SEQ_ORDER[0]:
+		AUDIO_PAD_SEQ_STARTS[ key ] = 0;
+	else:
+		AUDIO_PAD_SEQ_STARTS[ key ] = AUDIO_PAD_SEQ_STARTS[ prev_key ] + AUDIO_PAD_SEQ_DURATIONS[ prev_key ];
+	prev_key = key;
 
 # -----------------
 # Äänisegmenttien lopetusajat
 AUDIO_PAD_SEQ_ENDS = {};
 
 for key in AUDIO_PAD_SEQ_ORDER:
-    AUDIO_PAD_SEQ_ENDS[ key ] = AUDIO_PAD_SEQ_STARTS[ key ] + AUDIO_PAD_SEQ_DURATIONS[ key ] - AUDIO_PAD_SEQ_SILENCES[ key ];
+	AUDIO_PAD_SEQ_ENDS[ key ] = AUDIO_PAD_SEQ_STARTS[ key ] + AUDIO_PAD_SEQ_DURATIONS[ key ] - AUDIO_PAD_SEQ_SILENCES[ key ];
 
 # -----------------
 # Äänisegmentit
@@ -126,15 +126,15 @@ KEYPAD_ROWS_PINS = [ PIN_KEYPAD_R1, PIN_KEYPAD_R2, PIN_KEYPAD_R3, PIN_KEYPAD_R4 
 
 
 PIN_KEYBOARD_GPIO_INPUTS = [
-    PIN_KEYBOARD_1,
-    # PIN_KEYBOARD_2, Kaikki paitsi Ground
-    PIN_KEYBOARD_3,
-    PIN_KEYBOARD_4,
-    PIN_KEYBOARD_5,
-    PIN_KEYBOARD_6,
-    PIN_KEYBOARD_7,
-    PIN_KEYBOARD_8,
-    PIN_KEYBOARD_9
+	PIN_KEYBOARD_1,
+	# PIN_KEYBOARD_2, Kaikki paitsi Ground
+	PIN_KEYBOARD_3,
+	PIN_KEYBOARD_4,
+	PIN_KEYBOARD_5,
+	PIN_KEYBOARD_6,
+	PIN_KEYBOARD_7,
+	PIN_KEYBOARD_8,
+	PIN_KEYBOARD_9
 ]
 
 # --------------------

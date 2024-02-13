@@ -5,21 +5,21 @@ import Event
 
 class Operator:
 
-    events = Event.Handler();
+	events = Event.Handler();
 
-    features = []
+	features = []
 
-    def __init__( self ):
-        pass
-
-
-    def registerFeature( self, feature ):
-        self.features.append( feature )
+	def __init__( self ):
+		pass
 
 
-    def iterate( self ):
+	def registerFeature( self, feature ):
+		self.features.append( feature )
 
-        #debug( "Operator.iterate()" )
 
-        for feature in self.features:
-            feature.iterate()
+	def iterate( self ):
+
+		#debug( "Operator.iterate()" )
+
+		for feature in self.features:
+			feature.iterate()

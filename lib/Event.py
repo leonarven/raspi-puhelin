@@ -23,14 +23,14 @@ PRESSED_R = "PRESSED_R"
 
 def KeypadPressedEvent( key ):
 
-    name = None
+	name = None
 
-    if key == "R":
-        name = PRESSED_R
-    else:
-        name = _PRESSED_KEYPAD__PREFIX + key;
+	if key == "R":
+		name = PRESSED_R
+	else:
+		name = _PRESSED_KEYPAD__PREFIX + key;
 
-    return name
+	return name
 
 
 

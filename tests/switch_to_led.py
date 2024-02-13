@@ -50,58 +50,58 @@ light_state = 0
 
 # Puhelimen näppäimistön lukeminen
 def read_keyboard():
-    keyboard_input = input("Anna koodi: ")
-    return keyboard_input
+	keyboard_input = input("Anna koodi: ")
+	return keyboard_input
 
 # Valon vilkuttaminen
 def blink( count ):
-    global light_state
-    for i in range(0, count):
-        GPIO.output( const.PIN_STATUS_LED, GPIO.HIGH )
-        time.sleep(0.2)
-        GPIO.output( const.PIN_STATUS_LED, GPIO.LOW )
-        time.sleep(0.2)
-    light_state = 0
+	global light_state
+	for i in range(0, count):
+		GPIO.output( const.PIN_STATUS_LED, GPIO.HIGH )
+		time.sleep(0.2)
+		GPIO.output( const.PIN_STATUS_LED, GPIO.LOW )
+		time.sleep(0.2)
+	light_state = 0
 
 # Ohjelman päämetodi
 def main():
-    global switch_state
-    global light_state
+	global switch_state
+	global light_state
 
-    while True:
+	while True:
 
-        was_active = switch.isActive( False )
-        time.sleep(1)
-        is_active  = switch.isActive()
+		was_active = switch.isActive( False )
+		time.sleep(1)
+		is_active  = switch.isActive()
 
-        if is_active:
-            if not was_active:
-                debug("Status vaihtunut -> Aktiivinen")
+		if is_active:
+			if not was_active:
+				debug("Status vaihtunut -> Aktiivinen")
 
-            else:
+			else:
 
-                keyboard_input = read_keyboard()
+				keyboard_input = read_keyboard()
 
-                if keyboard_input == "1,2,3,4,5,6,7,8,9,0":
-                    blink( 5 )
-                else:
-                    blink( 2 )
+				if keyboard_input == "1,2,3,4,5,6,7,8,9,0":
+					blink( 5 )
+				else:
+					blink( 2 )
 
-        else:
-            if was_active:
-                debug("Status vaihtunut -> Lepotila")
+		else:
+			if was_active:
+				debug("Status vaihtunut -> Lepotila")
 
-                GPIO.output( const.PIN_STATUS_LED, GPIO.LOW )
+				GPIO.output( const.PIN_STATUS_LED, GPIO.LOW )
 
-            else:
+			else:
 
-                time.sleep(1)
+				time.sleep(1)
 
 # Ohjelman suoritus
 try:
-    main()
+	main()
 except KeyboardInterrupt:
-    debug("Ohjelma lopetettu")
-    GPIO.cleanup()
-    sys.exit()
+	debug("Ohjelma lopetettu")
+	GPIO.cleanup()
+	sys.exit()
 

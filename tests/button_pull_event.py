@@ -28,9 +28,9 @@ def main():
 	asd = input("asd");
 
 if __name__ == '__main__':
-        try:
-                main()
-        except KeyboardInterrupt:
-                debug("Ohjelma lopetettu")
-                GPIO.cleanup()
-                sys.exit()
+	try:
+		main()
+	except KeyboardInterrupt:
+		debug("Ohjelma lopetettu")
+		GPIO.cleanup()
+		sys.exit()
