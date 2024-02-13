@@ -1,5 +1,7 @@
 ## Votukka === Ericsson Diavox + RaspberryPI + ??
 
+[![Ericsson Diavox](https://github.com/leonarven/raspi-puhelin/blob/main/media/diavox.jpg?raw=true "Photo: Okänd / Tekniska museet - https://digitaltmuseum.se/021026312683/telefonapparat, CC BY 4.0")](https://digitaltmuseum.se/021026312683/telefonapparat)
+
 **Projekti RaspberryPI:n käyttämiseksi Diavox-lankapuhelimella.**
 
 Toistaiseksi on tärkeintä, että edes jotain tapahtuu.
@@ -16,8 +18,6 @@ Optiona
 5. Ulkoista kaiutinelementtiä voidaan käyttää
 6. Mikrofonia voidaan käyttää
 7. Mystinen R-painike tekee jotain mystistä
-
-[![Ericsson Diavox](https://upload.wikimedia.org/wikipedia/commons/thumb/0/05/Ericsson_Diavox_006.jpg/640px-Ericsson_Diavox_006.jpg "By Unknown / Swedish National Museum of Science and Technology - http://digitaltmuseum.se/021026312152, CC BY 4.0, https://commons.wikimedia.org/w/index.php?curid=50890964")](http://digitaltmuseum.se/021026312152)
 
 ### TODO
 
