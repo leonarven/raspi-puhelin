@@ -3,12 +3,9 @@ import pydub.playback
 
 # -----------------
 
-import os
 import sys
-script_dir = os.path.dirname( __file__ )
-mymodule_dir = os.path.join( script_dir, '..' )
-sys.path.append( mymodule_dir )
 
+sys.path.append( './lib' )
 
 from const import AUDIO_FILE_PAD
 
