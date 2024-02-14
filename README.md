@@ -20,23 +20,25 @@ Optiona
 7. Mystinen R-painike tekee jotain mystistä
 
 ### TODO
-
 - Kytke konfiguroitavuus env-muuttujiin / vipuihin / alustaan (onko RPi.GPIO käytettävissä vai ei)
-- Luo abstrakti Feature-luokka, jonka kautta voi vakioida erilaisia reaktioita (lue. aliohjelmia) erilaisiin tapahtumiin
-  - (esim. "kun näppäillään 1-2-3, soita lampaan määkäisy)
-- Luo operaattori, joka orkestroi haluttuja Featureja
+- Muuta MockGPIO -luokka lukemaan jotain ulkoista tiedostoa tmv., jolla voi etänä säätää INPUT-pinnejä
+  - Esim. MockGPIO.csv, jolla asettaa inputteja "ylös" ja jota seurataan iteroinnin rinnalla
+```
+Kommentti,Pinni,Arvo
+C3,11,1
+R2,5,1
+```
 
 ### Käyttö
 ```
 python3 -m venv venv
 source venv/bin/activate
 pip install -r requirements.txt
+python3 main.py
 ```
 ### Konfigurointi
-**lib/const.py** sisältää GPIO-pinnien määritykset
-
-**lib/GPIO.py** säätää käytetäänkö MockGPIO-luokkaa RPi.GPIO:n sijaan
-
+- **lib/const.py** sisältää GPIO-pinnien määritykset
+- **lib/GPIO.py** säätää käytetäänkö MockGPIO-luokkaa RPi.GPIO:n sijaan
 ### Testiskriptit
 #### tests/play_audio.py, toista audiotidosto
 ```
