@@ -1,18 +1,18 @@
 import sys
 import time
 
-sys.path.append( './lib' )
+sys.path.append( '.' )
 
-from logger import debug
-import audio
-from GPIO import GPIO
-import Switch
-import Operator
-import Feature
-import Event
-import KeypadPinger
-import KeypadHandler
-import const
+from lib.logger import debug
+import lib.audio as audio
+from lib.GPIO import GPIO
+import lib.Switch as Switch
+import lib.Operator as Operator
+import lib.Feature as Feature
+import lib.Event as Event
+import lib.KeypadPinger as KeypadPinger
+import lib.KeypadHandler as KeypadHandler
+import lib.const as const
 
 
 class HandsetActionFeature( Feature.BaseHandsetActionFeature ):

@@ -1,0 +1,21 @@
+comment, target, value
+kytkin,  PIN_23,     1
+R1,      PIN_6,      0
+R2,      PIN_5,      0
+R3,      PIN_0,      0
+R4,      PIN_4,      0
+
+AA,      X,          1
+
+AA,      1,          0
+AA,      2,          0
+AA,      3,          0
+AA,      4,          0
+AA,      5,          0
+AA,      6,          0
+AA,      7,          0
+AA,      8,          0
+AA,      9,          0
+AA,      A,          0
+AA,      0,          0
+AA,      B,          0

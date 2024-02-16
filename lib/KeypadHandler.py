@@ -1,4 +1,14 @@
-from const import AUDIO_PAD_SEQ_ORDER
+from lib.const import AUDIO_PAD_SEQ_ORDER
+
+
+def pad_2_c_r_2( pad ):
+	n = AUDIO_PAD_SEQ_ORDER.index( pad )
+	return ( n % 3, n // 3 )
+
+
+def c_r_2_pad( c, r ):
+	n = 3 * r + c
+	return AUDIO_PAD_SEQ_ORDER[ n ] if n < 12 else None
 
 class KeypadHandler:
 

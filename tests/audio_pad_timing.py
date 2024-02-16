@@ -5,9 +5,9 @@ import pydub.playback
 
 import sys
 
-sys.path.append( './lib' )
+sys.path.append( '.' )
 
-from const import AUDIO_FILE_PAD
+from lib.const import AUDIO_FILE_PAD
 
 # -----------------
 

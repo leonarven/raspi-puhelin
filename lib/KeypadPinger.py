@@ -1,8 +1,9 @@
-import const 
 import time
-import Switch
 
-from GPIO import GPIO
+import lib.const  as const
+import lib.Switch as Switch
+
+from lib.GPIO import GPIO
 
 
 class KeypadPinger: 

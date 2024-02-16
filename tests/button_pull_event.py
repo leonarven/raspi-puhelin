@@ -1,15 +1,15 @@
 import sys
 import time
 
-sys.path.append( './lib' )
+sys.path.append( '.' )
 
-from logger import debug
+from lib.logger import debug
 
-import audio
-import const
-import Switch
+import lib.audio as audio
+import lib.const as const
+import lib.Switch as Switch
 
-from GPIO import GPIO
+from lib.GPIO import GPIO
 
 switch = Switch.init();
 

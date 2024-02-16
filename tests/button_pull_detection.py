@@ -2,16 +2,16 @@
 import sys
 import time
 
-sys.path.append( './lib' )
+sys.path.append( '.' )
 
-import audio
+import lib.audio as audio
 
-from logger import debug
+from lib.logger import debug
 
-import const
-import Switch
+import lib.const as const
+import lib.Switch as Switch
 
-from GPIO import GPIO
+from lib.GPIO import GPIO
 
 def onStateChangeActive( switch ):
 	debug("Status vaihtunut -> Aktiivinen")
@@ -25,6 +25,7 @@ switch = Switch.init()
 
 def main():
 	while True:
+		GPIO.iterate();
 		switch.iterate( onStateChangeActive, onStateChangeDisable )
 
 if __name__ == '__main__':

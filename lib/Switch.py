@@ -1,8 +1,12 @@
-from logger import debug
+import sys
 import time
-from GPIO import GPIO
 
-from const import PIN_SWITCH_INPUT
+sys.path.append( '.' )
+
+from lib.logger import debug
+from lib.GPIO import GPIO
+
+from lib.const import PIN_SWITCH_INPUT
 
 class Switch:
 

@@ -2,10 +2,14 @@ from pydub.generators import WhiteNoise, Sine
 
 from pydub import AudioSegment
 from pydub.playback import play
-from logger import debug
 
+import sys
 import time
-import const
+sys.path.append( '.' )
+
+from lib.logger import debug
+
+import lib.const as const
 
 
 def audioNameToAudioFile( name ):

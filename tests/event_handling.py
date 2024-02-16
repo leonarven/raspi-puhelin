@@ -2,11 +2,15 @@ import sys
 
 sys.path.append( './lib' )
 
-from logger import debug
+import sys
 
-import Operator
-import Feature
-import Event
+sys.path.append( '.' )
+
+from lib.logger import debug
+
+import lib.Operator as Operator
+import lib.Feature as Feature
+import lib.Event as Event
 
 
 

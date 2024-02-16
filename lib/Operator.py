@@ -1,7 +1,8 @@
 
-from logger import debug
+from lib.logger import debug
+from lib.GPIO import GPIO, MockGPIO
 
-import Event
+import lib.Event as Event
 
 class Operator:
 
@@ -18,6 +19,9 @@ class Operator:
 
 
 	def iterate( self ):
+
+		if isinstance( GPIO, MockGPIO ):
+			GPIO.iterate()
 
 		#debug( "Operator.iterate()" )
 

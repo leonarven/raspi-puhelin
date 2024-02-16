@@ -1,9 +1,9 @@
-
-from logger import debug
-from GPIO import GPIO
-
-import Event
 import time
+
+from lib.logger import debug
+from lib.GPIO import GPIO
+
+import lib.Event as Event
 
 
 
