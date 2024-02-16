@@ -1,14 +1,11 @@
-
 import sys
 
-sys.path.append( './lib' )
-
-from GPIO import GPIO
-import const
-import audio
-import logger
-import KeypadPinger
-import KeypadHandler
+from lib.GPIO import GPIO
+import lib.const as const
+import lib.audio as audio
+import lib.logger as logger
+import lib.KeypadPinger as KeypadPinger
+import lib.KeypadHandler as KeypadHandler
 
 # ----------------
 

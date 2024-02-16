@@ -1,8 +1,4 @@
-
 import sys
-import time
-
-sys.path.append( '.' )
 
 import lib.audio as audio
 

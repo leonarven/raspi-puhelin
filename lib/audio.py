@@ -5,7 +5,6 @@ from pydub.playback import play
 
 import sys
 import time
-sys.path.append( '.' )
 
 from lib.logger import debug
 

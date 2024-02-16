@@ -1,11 +1,5 @@
 import sys
 
-sys.path.append( './lib' )
-
-import sys
-
-sys.path.append( '.' )
-
 from lib.logger import debug
 
 import lib.Operator as Operator
