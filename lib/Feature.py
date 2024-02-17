@@ -5,6 +5,8 @@ from lib.GPIO import GPIO
 
 import lib.Event as Event
 
+import lib.const as const
+
 
 
 
@@ -22,7 +24,7 @@ class Feature:
 
 class BaseKeypadFeature( Feature ):
 
-	keys = [ "1", "2", "3", "4", "5", "6", "7", "8", "9", "A", "0", "B", "R" ]
+	keys = const.KEYPAD_KEYS
 	key_events = dict()
 
 	def __init__(self, events):
@@ -38,7 +40,6 @@ class KeypadReaderFeature( BaseKeypadFeature ):
         super().__init__( events )
 
         self.keypad = keypad
-
         self.keypad.registerKeydownListener( self.onKeydown )
 
     def iterate( self ):
@@ -61,11 +62,43 @@ class BaseKeypadActionFeature( BaseKeypadFeature ):
 	def injectEventListener( self, key, event ):
 
 		if event is not None:
-
 			self.events.on( event, lambda data: self.onKeypadKeydown( key, data ) )
 
 	def onKeypadKeydown( self, key, data = None ):
 		debug( "BaseKeypadActionFeature.onKeypadKeydown()", key, data )
+
+
+
+class BaseKeypadInputActionFeature( Feature ):
+	
+	def __init__( self, events ):
+		super().__init__( events )
+
+		events.on( Event.KEYPAD_INPUT, self.onKeypadInput )
+
+	def onKeypadInput( self, data ):
+		debug( "BaseKeypadInputActionFeature.onKeypadInput()", data )
+
+
+
+class KeypadEndkeyInputFeature( BaseKeypadActionFeature ):
+
+	pad_stack = []
+
+	def __init__( self, events, endkey = const.KEYPAD_KEY_HASH ):
+		super().__init__( events )
+
+		self.endkey = endkey
+
+	def onKeypadKeydown( self, key, data ):
+		super().onKeypadKeydown( key, data )
+
+		if key == self.endkey:
+			self.events.emit( Event.KEYPAD_INPUT, self.pad_stack )
+			self.pad_stack = []
+
+		else:
+			self.pad_stack.append( key )
 
 
 

@@ -1,7 +1,7 @@
 from pydub.generators import WhiteNoise, Sine
 
 from pydub import AudioSegment
-from pydub.playback import play
+import pydub.playback
 
 import sys
 import time
@@ -121,13 +121,23 @@ def getOrGenerateAudio( name ):
 def playAudio( name ):
 	sound = getOrGenerateAudio( name )
 	debug( "audio.playAudio( name )", name )
-	play(sound)
+	pydub.playback.play(sound)
 	debug( "audio.playAudio( name )", name, "READY" )
 
 def playSound( name, sound ):
 	debug( "audio.playSound( name )", name )
-	play(sound)
+	pydub.playback.play(sound)
 	debug( "audio.playSound( name )", name, "READY" )
+
+# -------------------
+
+def playPadAudio( key ):
+	audio_name = const.AUDIO_FILE_PAD + "#" + key
+	playAudio( audio_name )
+
+playPadAudioSequence = lambda sequence: [ playPadAudio( key ) for key in sequence ]
+
+# -------------------
 
 def initializeAudio( name ):
 	debug( "audio.initializeAudio()", name )

@@ -38,7 +38,7 @@ class MockGPIO:
         debug("MockGPIO.setup(", pinToString(pin), ",", mode, ")")
 
     def input(self, pin):
-        debug("MockGPIO.input(", pinToString(pin), ")")
+        #debug("MockGPIO.input(", pinToString(pin), ")")
 
         if pin in self.mock_statuses:
             return self.mock_statuses[ pin ]
@@ -46,7 +46,7 @@ class MockGPIO:
         return self.LOW
 
     def output(self, pin, mode):
-        debug("MockGPIO.output(", pinToString(pin), ",", mode, ")")
+        #debug("MockGPIO.output(", pinToString(pin), ",", mode, ")")
 
         self.mock_statuses[ pin ] = mode
 
@@ -70,7 +70,7 @@ class FileMockGPIO(MockGPIO):
         pass
 
     def input(self, pin):
-        debug("FileMockGPIO.input(", pinToString(pin), ")")
+        #debug("FileMockGPIO.input(", pinToString(pin), ")")
 
         t_char = self.mock_pads[0] if len(self.mock_pads) > 0 else '?'
         if t_char in const.AUDIO_PAD_SEQ_ORDER:

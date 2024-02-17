@@ -4,12 +4,11 @@ import time
 sys.path.append('.')
 
 from lib.logger import debug
+from lib.GPIO   import GPIO
 
-import lib.audio as audio
-import lib.const as const
+import lib.const  as const
 import lib.Switch as Switch
 
-from lib.GPIO import GPIO
 
 switch = Switch.init();
 

@@ -24,40 +24,89 @@ AUDIO_PAD_B        = "assets/pad.mp3#B"
 
 # -----------------
 
-AUDIO_PAD_SEQ_ORDER = [ '1', '2', '3', '4', '5', '6', '7', '8', '9', 'A', '0', 'B' ];
+KEYPAD_KEY_1 = "1"
+KEYPAD_KEY_2 = "2"
+KEYPAD_KEY_3 = "3"
+KEYPAD_KEY_4 = "4"
+KEYPAD_KEY_5 = "5"
+KEYPAD_KEY_6 = "6"
+KEYPAD_KEY_7 = "7"
+KEYPAD_KEY_8 = "8"
+KEYPAD_KEY_9 = "9"
+KEYPAD_KEY_A = "A"
+KEYPAD_KEY_0 = "0"
+KEYPAD_KEY_B = "B"
+
+KEYPAD_KEY_STAR = "A"
+KEYPAD_KEY_HASH = "B"
+
+KEYPAD_R = "R"
+
+KEYPAD_KEYS = [
+	KEYPAD_KEY_1,
+	KEYPAD_KEY_2,
+	KEYPAD_KEY_3,
+	KEYPAD_KEY_4,
+	KEYPAD_KEY_5,
+	KEYPAD_KEY_6,
+	KEYPAD_KEY_7,
+	KEYPAD_KEY_8,
+	KEYPAD_KEY_9,
+	KEYPAD_KEY_STAR,
+	KEYPAD_KEY_0,
+	KEYPAD_KEY_HASH,
+    KEYPAD_R
+]
+
+# -----------------
+
+AUDIO_PAD_SEQ_ORDER = [
+	KEYPAD_KEY_1,
+	KEYPAD_KEY_2,
+	KEYPAD_KEY_3,
+	KEYPAD_KEY_4,
+	KEYPAD_KEY_5,
+	KEYPAD_KEY_6,
+	KEYPAD_KEY_7,
+	KEYPAD_KEY_8,
+	KEYPAD_KEY_9,
+	KEYPAD_KEY_STAR,
+	KEYPAD_KEY_0,
+	KEYPAD_KEY_HASH
+]
 
 # -----------------
 
 # Koko äänisegmentin kesto, tasattuna äänen alkuun ja päätettynä lopun hiljaisuudella
 AUDIO_PAD_SEQ_DURATIONS = {
-	'1': 1300,
-	'2': 1300,
-	'3': 1300,
-	'4': 1400,
-	'5': 1400,
-	'6': 1600,
-	'7': 1700,
-	'8': 1600,
-	'9': 1700,
-	'A': 1400,
-	'0': 1400,
-	'B': 1400
+	KEYPAD_KEY_1: 1300,
+	KEYPAD_KEY_2: 1300,
+	KEYPAD_KEY_3: 1300,
+	KEYPAD_KEY_4: 1400,
+	KEYPAD_KEY_5: 1400,
+	KEYPAD_KEY_6: 1600,
+	KEYPAD_KEY_7: 1700,
+	KEYPAD_KEY_8: 1600,
+	KEYPAD_KEY_9: 1700,
+	KEYPAD_KEY_A: 1400,
+	KEYPAD_KEY_0: 1400,
+	KEYPAD_KEY_B: 1400
 }
 
 # Lopun hiljaisuuden kesto
 AUDIO_PAD_SEQ_SILENCES = {
-	'1': 200,
-	'2': 500,
-	'3': 200,
-	'4': 200,
-	'5': 200,
-	'6': 700,
-	'7': 700,
-	'8': 600,
-	'9': 600,
-	'A': 600,
-	'0': 900,
-	'B': 200
+	KEYPAD_KEY_1: 200,
+	KEYPAD_KEY_2: 500,
+	KEYPAD_KEY_3: 200,
+	KEYPAD_KEY_4: 200,
+	KEYPAD_KEY_5: 200,
+	KEYPAD_KEY_6: 700,
+	KEYPAD_KEY_7: 700,
+	KEYPAD_KEY_8: 600,
+	KEYPAD_KEY_9: 600,
+	KEYPAD_KEY_A: 600,
+	KEYPAD_KEY_0: 900,
+	KEYPAD_KEY_B: 200
 }
 
 # -----------------

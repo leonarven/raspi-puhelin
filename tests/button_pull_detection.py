@@ -2,11 +2,10 @@ import sys
 
 sys.path.append('.')
 
-import lib.audio as audio
-
 from lib.logger import debug
 
-import lib.const as const
+import lib.audio  as audio
+import lib.const  as const
 import lib.Switch as Switch
 
 from lib.GPIO import GPIO

@@ -5,8 +5,8 @@ sys.path.append('.')
 from lib.logger import debug
 
 import lib.Operator as Operator
-import lib.Feature as Feature
-import lib.Event as Event
+import lib.Feature  as Feature
+import lib.Event    as Event
 
 
 

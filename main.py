@@ -1,16 +1,16 @@
 import sys
-import time
 
+from lib.GPIO   import GPIO
 from lib.logger import debug
-import lib.audio as audio
-from lib.GPIO import GPIO
-import lib.Switch as Switch
-import lib.Operator as Operator
-import lib.Feature as Feature
-import lib.Event as Event
-import lib.KeypadPinger as KeypadPinger
+
+import lib.const         as const
+import lib.audio         as audio
+import lib.Switch        as Switch
+import lib.Operator      as Operator
+import lib.Feature       as Feature
+import lib.KeypadPinger  as KeypadPinger
 import lib.KeypadHandler as KeypadHandler
-import lib.const as const
+
 
 
 class HandsetActionFeature( Feature.BaseHandsetActionFeature ):
@@ -38,13 +38,20 @@ class KeypadActionFeature( Feature.BaseKeypadActionFeature ):
 
 	def onKeypadKeydown( self, key, data ):
 		super().onKeypadKeydown( key, data )
-		#print("[" , str( self.iteration ).zfill( 7 ) , "]", "Detected", key )
 
 		if key in const.AUDIO_PAD_SEQ_STARTS:
 			if key in const.AUDIO_PAD_SEQ_ENDS:
 				audio.playSound( const.AUDIO_FILE_PAD+"#"+key, self.sound[ const.AUDIO_PAD_SEQ_STARTS[key]:const.AUDIO_PAD_SEQ_ENDS[key] ] )
 
 
+
+class KeypadInputActionFeature( Feature.BaseKeypadInputActionFeature ):
+	def onKeypadInput( self, data ):
+		audio.playPadAudioSequence( data )
+
+
+
+import lib.Event as Event
 
 def main():
 	operator = Operator.Operator()
@@ -54,12 +61,16 @@ def main():
 
 	operator.registerFeature( Feature.HandsetReaderFeature( operator.events, Switch.init() ) )
 	operator.registerFeature( Feature.KeypadReaderFeature(  operator.events, keypad ) )
+	operator.registerFeature( Feature.KeypadEndkeyInputFeature( operator.events, const.KEYPAD_KEY_HASH ) )
 
-	operator.registerFeature( KeypadActionFeature(  operator.events ) )
 	operator.registerFeature( HandsetActionFeature( operator.events ) )
+	operator.registerFeature( KeypadActionFeature(  operator.events ) )
+	operator.registerFeature( KeypadInputActionFeature( operator.events ) )
 
 	while True:
 		operator.iterate()
+
+
 
 if __name__ == '__main__':
 	try:

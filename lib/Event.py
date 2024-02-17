@@ -1,4 +1,6 @@
 
+from lib.const import KEYPAD_R
+
 HANDSET_STATUS_LIFTED = "HANDSET_LIFTED"
 HANDSET_STATUS_LOWERED = "HANDSET_LOWERED"
 
@@ -19,13 +21,15 @@ PRESSED_KEYPAD_B = _PRESSED_KEYPAD__PREFIX + "B"
 
 PRESSED_R = "PRESSED_R"
 
+KEYPAD_INPUT = "KEYPAD_INPUT"
+
 
 
 def KeypadPressedEvent( key ):
 
 	name = None
 
-	if key == "R":
+	if key == KEYPAD_R:
 		name = PRESSED_R
 	else:
 		name = _PRESSED_KEYPAD__PREFIX + key;

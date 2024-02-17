@@ -2,12 +2,12 @@ import sys
 
 sys.path.append('.')
 
+from lib.logger import debug
+from lib.GPIO   import GPIO
+
 import lib.audio as audio
 import lib.const as const
 
-from lib.logger import debug
-
-from lib.GPIO import GPIO
 
 def main():
 	audio.playAudio( const.AUDIO_FILE_LAMMAS )
