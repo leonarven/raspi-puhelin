@@ -1,5 +1,3 @@
-import sys
-
 from lib.MockGPIO import MockGPIO, FileMockGPIO
 
 #import RPi.GPIO as GPIO

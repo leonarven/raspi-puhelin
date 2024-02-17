@@ -1,6 +1,8 @@
 import sys
 import time
 
+sys.path.append('.')
+
 from lib.logger import debug
 
 import lib.audio as audio

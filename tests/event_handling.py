@@ -1,5 +1,7 @@
 import sys
 
+sys.path.append('.')
+
 from lib.logger import debug
 
 import lib.Operator as Operator
@@ -8,7 +10,7 @@ import lib.Event as Event
 
 
 
-class HeadsetMockReaderFeature( Feature.Feature ):
+class HandsetMockReaderFeature( Feature.Feature ):
 
 	def iterate( self ):
 		
@@ -45,7 +47,7 @@ class KeypadMockReaderFeature( Feature.BaseKeypadFeature ):
 
 
 
-class HeadsetActionFeature( Feature.BaseHeadsetActionFeature ):
+class HandsetActionFeature( Feature.BaseHandsetActionFeature ):
 	pass
 
 
@@ -60,8 +62,8 @@ def main():
 
 	operator.registerFeature( KeypadActionFeature( operator.events ) )
 	operator.registerFeature( KeypadMockReaderFeature( operator.events ) )
-	operator.registerFeature( HeadsetMockReaderFeature( operator.events ) )
-	operator.registerFeature( HeadsetActionFeature( operator.events ) )
+	operator.registerFeature( HandsetMockReaderFeature( operator.events ) )
+	operator.registerFeature( HandsetActionFeature( operator.events ) )
 
 	while True:
 		operator.iterate()

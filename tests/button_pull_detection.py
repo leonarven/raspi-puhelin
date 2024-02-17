@@ -1,5 +1,7 @@
 import sys
 
+sys.path.append('.')
+
 import lib.audio as audio
 
 from lib.logger import debug

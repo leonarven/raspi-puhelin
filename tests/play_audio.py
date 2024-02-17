@@ -1,5 +1,7 @@
 import sys
 
+sys.path.append('.')
+
 import lib.audio as audio
 import lib.const as const
 

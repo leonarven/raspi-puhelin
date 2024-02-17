@@ -1,7 +1,10 @@
 import pydub
 import pydub.playback
+import sys
 
 # -----------------
+
+sys.path.append('.')
 
 from lib.const import AUDIO_FILE_PAD
 
