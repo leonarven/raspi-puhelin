@@ -79,57 +79,7 @@ def generateAudio( name ):
 		sound = AudioSegment.from_mp3( file )
 		AUDIO_FILES_CACHE[ file ] = sound
 
-	""" 	file = audioNameToAudioFile( name );
-
-	file = name
-
-	if name == const.AUDIO_FILE_LAMMAS:
-		pass
-	elif name == const.AUDIO_FILE_PM:
-		pass
-	elif name == const.AUDIO_FILE_PAD:
-		pass
-
-	elif name == const.AUDIO_PAD_1:
-		file = const.AUDIO_FILE_PAD
-	elif name == const.AUDIO_PAD_2:
-		file = const.AUDIO_FILE_PAD
-	elif name == const.AUDIO_PAD_3:
-		file = const.AUDIO_FILE_PAD
-	elif name == const.AUDIO_PAD_4:
-		file = const.AUDIO_FILE_PAD
-	elif name == const.AUDIO_PAD_5:
-		file = const.AUDIO_FILE_PAD
-	elif name == const.AUDIO_PAD_6:
-		file = const.AUDIO_FILE_PAD
-	elif name == const.AUDIO_PAD_7:
-		file = const.AUDIO_FILE_PAD
-	elif name == const.AUDIO_PAD_8:
-		file = const.AUDIO_FILE_PAD
-	elif name == const.AUDIO_PAD_9:
-		file = const.AUDIO_FILE_PAD
-	elif name == const.AUDIO_PAD_A:
-		file = const.AUDIO_FILE_PAD
-	elif name == const.AUDIO_PAD_0:
-		file = const.AUDIO_FILE_PAD
-	elif name == const.AUDIO_PAD_B:
-		file = const.AUDIO_FILE_PAD
-	
-
-	elif name == const.AUDIO_NOISE:
-		noise = WhiteNoise()
-		sound = noise.to_audio_segment( duration=1000,volume=0 )
-		sound = sound - 20
-		return sound
-	
-	else:
-		return None;
-
-	sound = AudioSegment.from_mp3( file )
-	 """
-	if name == const.AUDIO_FILE_PM:
-		sound = sound[13000:15000]
-	elif name == const.AUDIO_PAD_1:
+	if name == const.AUDIO_PAD_1:
 		sound = sound[const.AUDIO_PAD_SEQ_STARTS['1']:const.AUDIO_PAD_SEQ_ENDS['1']]
 	elif name == const.AUDIO_PAD_2:
 		sound = sound[const.AUDIO_PAD_SEQ_STARTS['2']:const.AUDIO_PAD_SEQ_ENDS['2']]

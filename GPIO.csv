@@ -1,6 +1,6 @@
 comment, target, value
 
-kytkin,  PIN_23,     1
+kytkin,  PIN_23,     0
 
 R1,      PIN_6,      0
 R2,      PIN_5,      0
