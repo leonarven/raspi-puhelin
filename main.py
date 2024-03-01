@@ -45,7 +45,7 @@ class KeypadActionFeature( Feature.BaseKeypadActionFeature ):
 
 
 
-class KeypadInputActionFeature( Feature.BaseKeypadInputActionFeature ):
+class KeypadInputActionFeature( Feature.BaseKeypadActionFeature ):
 	def onKeypadInput( self, data ):
 		audio.playPadAudioSequence( data )
 
@@ -61,6 +61,9 @@ def main():
 
 	operator.registerFeature( Feature.HandsetReaderFeature( operator.events, Switch.init() ) )
 	operator.registerFeature( Feature.KeypadReaderFeature(  operator.events, keypad ) )
+	operator.registerFeature( Feature.BaseKeypadSequenceActionFeature( operator.events ) )
+
+
 	operator.registerFeature( Feature.KeypadEndkeyInputFeature( operator.events, const.KEYPAD_KEY_HASH ) )
 
 	operator.registerFeature( HandsetActionFeature( operator.events ) )

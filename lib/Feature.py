@@ -33,7 +33,6 @@ class BaseKeypadFeature( Feature ):
 		for key in self.keys: self.key_events[ key ] = Event.KeypadPressedEvent( key )
 
 
-
 class KeypadReaderFeature( BaseKeypadFeature ):
 
     def __init__( self, events, keypad ):
@@ -58,48 +57,69 @@ class BaseKeypadActionFeature( BaseKeypadFeature ):
 
 		for key in self.key_events:
 			self.injectEventListener( key, self.key_events[key] )
+		
+
+		events.on( Event.KEYPAD_SEQUENCE, self.onKeypadSequence )
+		events.on( Event.KEYPAD_INPUT,    self.onKeypadInput )
+		events.on( Event.KEYPAD_CLEAR,    self.onKeypadClear )
 
 	def injectEventListener( self, key, event ):
 
 		if event is not None:
 			self.events.on( event, lambda data: self.onKeypadKeydown( key, data ) )
 
+
+	def onKeypadKeydown( self, argv1 = None, argv2 = None, argv3 = None ):
+		debug( type(self).__name__,".onKeypadKeydown()",  argv1, argv2, argv3 )
+
+	def onKeypadSequence( self, argv1 = None, argv2 = None, argv3 = None ):
+		debug( type(self).__name__,".onKeypadSequence()", argv1, argv2, argv3 )
+
+	def onKeypadInput( self, argv1 = None, argv2 = None, argv3 = None ):
+		debug( type(self).__name__,".onKeypadInput()",     argv1, argv2, argv3 )
+
+	def onKeypadClear( self, argv1 = None, argv2 = None, argv3 = None ):
+		debug( type(self).__name__,".onKeypadClear()",     argv1, argv2, argv3 )
+
+
+
+class BaseKeypadSequenceActionFeature( BaseKeypadActionFeature ):
+
+	pad_stack = []
+
 	def onKeypadKeydown( self, key, data = None ):
-		debug( "BaseKeypadActionFeature.onKeypadKeydown()", key, data )
+		self.pad_stack.append( key )
+
+		self.events.emit( Event.KEYPAD_SEQUENCE, self.pad_stack )
+
+	def onKeypadClear( self, data ):
+		self.pad_stack = [];
 
 
-
-class BaseKeypadInputActionFeature( Feature ):
+""" class BaseKeypadInputActionFeature( BaseKeypadActionFeature ):
 	
 	def __init__( self, events ):
 		super().__init__( events )
-
 		events.on( Event.KEYPAD_INPUT, self.onKeypadInput )
 
 	def onKeypadInput( self, data ):
-		debug( "BaseKeypadInputActionFeature.onKeypadInput()", data )
-
+		debug( "BaseKeypadInputActionFeature.onKeypadInput()", data ) """
 
 
 class KeypadEndkeyInputFeature( BaseKeypadActionFeature ):
-
-	pad_stack = []
 
 	def __init__( self, events, endkey = const.KEYPAD_KEY_HASH ):
 		super().__init__( events )
 
 		self.endkey = endkey
 
-	def onKeypadKeydown( self, key, data ):
-		super().onKeypadKeydown( key, data )
+
+	def onKeypadSequence( self, seq ):
+		key = seq.pop()
 
 		if key == self.endkey:
-			self.events.emit( Event.KEYPAD_INPUT, self.pad_stack )
-			self.pad_stack = []
-
-		else:
-			self.pad_stack.append( key )
-
+			self.events.emit( Event.KEYPAD_CLEAR )
+			self.events.emit( Event.KEYPAD_INPUT, seq )
 
 
 class BaseHandsetActionFeature( Feature ):

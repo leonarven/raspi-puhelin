@@ -21,7 +21,9 @@ PRESSED_KEYPAD_B = _PRESSED_KEYPAD__PREFIX + "B"
 
 PRESSED_R = "PRESSED_R"
 
-KEYPAD_INPUT = "KEYPAD_INPUT"
+KEYPAD_INPUT    = "KEYPAD_INPUT"
+KEYPAD_SEQUENCE = "KEYPAD_SEQUENCE"
+KEYPAD_CLEAR    = "KEYPAD_CLEAR"
 
 
 
@@ -52,7 +54,7 @@ class Handler:
 		self.events[event].append(listener)
 
 	# Raise an event
-	def emit( self, event, data ):
+	def emit( self, event, data = None ):
 
 		if event in self.events:
 			for listener in self.events[event]:

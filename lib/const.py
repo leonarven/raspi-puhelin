@@ -1,6 +1,12 @@
 
 DEBUG = True
 
+DO_FAKE_SST = not True
+DO_FAKE_LLM = not True
+DO_FAKE_TTS = not True
+
+# -----------------
+
 MS_1000 = 1
 MS_100  = 0.1
 MS_10   = 0.01
